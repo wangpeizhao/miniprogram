@@ -1,9 +1,99 @@
+<import src="/wxParse/wxParse.wxml"/>
 <!--logs.wxml-->
 <view>{{msg}}</view>
-<text>{{msg}}</text>
+  <text selectable>{{msg}}（selectable）</text>
+<view>
+  <text>{{msg}}（no allow selectable）</text>
+</view>
+<view class="content">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<view>
+<rich-text>
+  <fieldset>
+    <!-- <h1>我是富文本</h1> -->
+    <!-- <br> -->
+    {{richTxt}}
+    <p>我是段落</p>
+    
+    <ul>
+      <li>1111111</li>
+      <li>2222222</li>
+      <li>3333333</li>
+      <li>4444444</li>
+    </ul>
+  </fieldset>
+</rich-text>
+</view>
 <view bindtap="onParker"> click me </view>
+<view bindtap="bindViewTap">hit me</view>
+
+<!-- 23.146965,113.253406 -->
+<map 
+scale="18" 
+show-location 
+bindtap="mapbindtap" 
+bindupdated="mapbindupdated"
+bindregionchange="mapbindregionchange" 
+circles="{{mapcircles}}"
+bindmarkertap="bindViewTap" 
+longitude="113.253406" 
+latitude="23.146965">
+</map>
+<map id="map" longitude="113.253406" latitude="23.146965" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
 <view class="container log-list">
   <block wx:for="{{logs}}" wx:for-item="log" wx:key="parker">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block>
 </view>
+<view class="section">
+  <view class="section__title">flex-direction: row</view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item bc_green">1</view>
+    <view class="flex-item bc_red">2</view>
+    <view class="flex-item bc_blue">3</view>
+  </view>
+</view>
+<view class="section">
+  <view class="section__title">flex-direction: column</view>
+  <view class="flex-wrp" style="height: 300px;flex-direction:column;">
+    <view class="flex-item bc_green">1</view>
+    <view class="flex-item bc_red">2</view>
+    <view class="flex-item bc_blue">3</view>
+  </view>
+</view>
+<!-- icon -->
+<view class="group">
+  <block wx:for="{{iconSize}}">
+    <icon type="success" size="{{item}}"/>
+  </block>
+</view>
+
+<view class="group">
+  <block wx:for="{{iconType}}">
+    <icon type="{{item}}" size="40"/>
+  </block>
+</view>
+
+
+<view class="group">
+  <block wx:for="{{iconColor}}" wx:key="_parker">
+    <icon type="success" size="40" color="{{item}}"/>
+  </block>
+</view>
+<!-- progress -->
+<progress percent="20" show-info />
+<progress percent="40" stroke-width="12" />
+<progress percent="60" color="pink" active/>
+<progress percent="80" active />
+<!-- button -->
+<button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="primary"> primary </button>
+<button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="warn"> warn </button>
+<button bindtap="setDisabled">点击设置以上按钮disabled属性</button>
+<button bindtap="setPlain">点击设置以上按钮plain属性</button>
+<button bindtap="setLoading">点击设置以上按钮loading属性</button>
+<button open-type="contact">进入客服会话</button>
