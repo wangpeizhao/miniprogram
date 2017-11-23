@@ -1,0 +1,3 @@
+<!--pages/topics/topics.wxml-->
+<text>pages/topics/topics.wxml</text>
+<view bindtap='jump'>点我啊</view>

@@ -1,18 +1,35 @@
-// pages/logs/index.js
+var api = require('../../utils/topics_api.js');
+// pages/topics/topics.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    title: "文章列表"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log("get topic lists.");
+    this.fetchData();
+  },
+
+  fetchData: function(data){
+    if(!data){
+      data = {};
+    }
+    if(!data.page){
+      data.page = 1;
+    }
+    wx.request({
+      url: api.getTopicsUri(data),
+      success: function(result){
+        console.log(result);
+      }
+    })
   },
 
   /**
@@ -63,7 +80,7 @@ Page({
   onShareAppMessage: function () {
   
   },
-  jump: function () {
+  jump: function(){
     wx.navigateTo({
       url: '/pages/logs/index',
     })

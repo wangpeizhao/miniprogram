@@ -1,30 +1,43 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/topics/topics",
+    "pages/logs/logs",
+    "pages/logs/index"
   ],
   "window": {
     "navigationBarTitleText": "MrParker",
     "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
-    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 30
   },
   "tabBar": {
-    "color": "#FFFFFF",
-    "selectedColor": "green",
-    "backgroundColor": "#eeeeee",
-    "position": "top",
+    "color": "#272636",
+    "selectedColor": "#80bd01",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_hl.png"
+      },
+      {
+        "pagePath": "pages/topics/topics",
+        "text": "主题",
+        "iconPath": "images/list.png",
+        "selectedIconPath": "images/list_hl.png"
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "text": "日志",
+        "iconPath": "images/list.png",
+        "selectedIconPath": "images/list_hl.png"
       }
     ]
   },

@@ -124,8 +124,8 @@ Page({
   },
   bindViewTap: function(){
     console.log("you hit me!");
-    wx.navigateTo({
-      url: '../index/index',
+    wx.redirectTo({
+      url: '/pages/logs/index',
     })
   },
   mapbindtap: function(){
