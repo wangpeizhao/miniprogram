@@ -124,7 +124,7 @@ Page({
   },
   bindViewTap: function(){
     console.log("you hit me!");
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/logs/index',
     });
   },

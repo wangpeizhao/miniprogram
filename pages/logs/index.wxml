@@ -1,7 +1,25 @@
 <!--pages/logs/index.wxml-->
 <import src="/wxParse/wxParse.wxml"/>
 <import src="template.wxml"/>
-<text>pages/logs/index.wxml</text>
+<!-- <text>pages/logs/index.wxml</text> -->
+<block wx:for="{{pictures}}" wx:key="">
+    <image class="img" src="{{item}}" id="{{item}}" catchtap="previewPic"></image>
+</block>
+<button bindtap="uploadPic" hover-class="other-button-hover">上传图片</button>
+<button bindtap="savePic" hover-class="other-button-hover" type="primary">保存图片</button>
+<button bindtap="startRecord" hover-class="other-button-hover">开始录音</button>
+<button bindtap="stopRecord" hover-class="other-button-hover">停止录音</button>
+<button bindtap="playVoice" hover-class="other-button-hover" type="primary">开始播放</button>
+<button bindtap="pauseVoice" hover-class="other-button-hover">暂停播放</button>
+<button bindtap="stopVoice" hover-class="other-button-hover">停止播放</button>
+<view>latitude:{{gotLocation.latitude}} ,longitude:{{gotLocation.longitude}}</view>
+<button bindtap="getLocation" hover-class="other-button-hover" type="primary">获取地址</button>
+<view>{{choosedLocation.address}}</view>
+<view>latitude:{{choosedLocation.latitude}},</view>
+<view>longitude:{{choosedLocation.longitude}}</view>
+<button bindtap="chooseLocation" hover-class="other-button-hover" type="primary">选择地址</button>
+<button bindtap="openLocation" hover-class="other-button-hover" type="warn">打开地址</button>
+
 
 <block wx:for="{{[0,1,2,3,4]}}" wx:key="">
     回复{{index}}:<template is="wxParse" data="{{wxParseData:replyTemArray[item]}}"/>
@@ -27,3 +45,4 @@
 </view>
 <input id="myInput" bindblur="bindBlur" />
 <text bindtap='jump'>kdkdkdkdkdk</text>
+<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>

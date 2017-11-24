@@ -1,13 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var that = null;
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    systemInfo: null
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,6 +17,7 @@ Page({
     })
   },
   onLoad: function () {
+    that = this;
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,6 +44,22 @@ Page({
         }
       })
     }
+    // wx.checkSession({
+    //   success: function () {
+    //     //session 未过期，并且在本生命周期一直有效
+    //   },
+    //   fail: function () {
+    //     //登录态过期
+    //     wx.login() //重新登录
+    //   }
+    // })
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          systemInfo: res
+        });
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -55,6 +73,26 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  linkHome: function(){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+  linkArticle: function () {
+    wx.switchTab({
+      url: '/pages/topics/topics',
+    })
+  },
+  linkLog: function () {
+    wx.switchTab({
+      url: '/pages/logs/logs',
+    })
+  },
+  linkTest: function () {
+    wx.navigateTo({
+      url: '/pages/logs/index',
     })
   }
 })
