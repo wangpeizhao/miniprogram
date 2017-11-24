@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/topics/topics",
     "pages/logs/logs",
-    "pages/logs/index"
+    "pages/logs/index",
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarTitleText": "MrParker",

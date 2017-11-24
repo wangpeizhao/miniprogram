@@ -1,1 +1,17 @@
 /* pages/topics/topics.wxss */
+.focus{font-weight: bold;color: #c75d4f!important;}
+.top-bar{background: #444444;height: 40px;line-height: 40px;}
+.top-bar-item{color: #86af37;width: 20%;display: inline-block;text-align: center;font-size: 14px;}
+.postItem{padding: 8px 10px;border-bottom: 2px #86af37 solid;}
+.author{margin-bottom: 5px;}
+.author-avatar{display: inline-block;width: 50px;height: 50px;border-radius:4px;}
+.author-loginname{display: inline-block;margin: 0 5px;height: 50px;line-height: 50px;max-width: 165px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+.posts-tag{display: inline-block;border: 1px #c75d4f solid;padding: 2px 3px;color: #c75d4f;width: 35px;font-size: 12px;text-align: center;border-radius:4px;margin-right: 5px;margin-bottom: 13px;}
+.hot{border: 1px #f74831 solid;color: #f74831;}
+.author-last_reply_at{display: inline-block;font-size: 12px;}
+.post-title{font-size: 14px;color: #363f48;margin-bottom: 5px;}
+.post-barinfo{font-size: 12px;text-align: right;color: #666666;}
+.visis-count,.reply-count{display: inline-block;width: 70px;}

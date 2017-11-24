@@ -1,3 +1,29 @@
 <!--pages/logs/index.wxml-->
+<import src="/wxParse/wxParse.wxml"/>
+<import src="template.wxml"/>
 <text>pages/logs/index.wxml</text>
+
+<block wx:for="{{[0,1,2,3,4]}}" wx:key="">
+    回复{{index}}:<template is="wxParse" data="{{wxParseData:replyTemArray[item]}}"/>
+</block>
+
+<template is="msgItem" data="{{...items}}"></template>
+<template name="odd">
+  <view> odd </view>
+</template>
+<template name="even">
+  <view> even </view>
+</template>
+
+<block wx:for="{{[1, 2, 3, 4, 5]}}">
+    <template is="{{item % 2 == 0 ? 'even' : 'odd'}}"/>
+</block>
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
+<input id="myInput" bindblur="bindBlur" />
 <text bindtap='jump'>kdkdkdkdkdk</text>

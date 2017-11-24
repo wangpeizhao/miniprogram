@@ -126,7 +126,7 @@ Page({
     console.log("you hit me!");
     wx.redirectTo({
       url: '/pages/logs/index',
-    })
+    });
   },
   mapbindtap: function(){
     console.log("map bindtap");

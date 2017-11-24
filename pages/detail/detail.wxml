@@ -1,0 +1,25 @@
+<!--pages/detail/detail.wxml-->
+<import src="/wxParse/wxParse.wxml"/>
+<view class="header">{{articleDetail.title}}</view>
+<view class="author">
+  <image class="avatar" src="{{articleDetail.author.avatar_url}}"></image>
+  <view class="authorInfo">
+    <view class="loginname">{{articleDetail.author.loginname}}</view>
+    <view class="createTime">{{articleDetail.create_at}}</view>
+  </view>
+</view>
+<view class="content">
+  <template is="wxParse" data="{{wxParseData:article_content.nodes}}"/>
+</view>
+<block wx:for="{{articleDetail.replies}}" wx:key="index">
+  <view class="reply" id="{{item.id}}">
+    <image class="avatar" src="{{item.author.avatar_url}}"></image>
+    <view class="authorInfo">
+      <view class="loginname">{{item.author.loginname}}</view>
+      <view class="createTime">{{item.create_at}}</view>
+    </view>
+    <view class="reply_content">
+      <template is="wxParse" data="{{wxParseData:replyTemArray[index]}}"/>
+    </view>
+  </view>
+</block>

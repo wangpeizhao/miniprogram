@@ -45,6 +45,12 @@ Page({
   },
   getUserInfo: function(e) {
     console.log(e)
+    if (typeof e.detail.errMsg != "undefined"){
+      wx.showModal({
+        title: '提示',
+        content: e.detail.errMsg
+      })
+    }
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

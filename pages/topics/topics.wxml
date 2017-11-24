@@ -1,3 +1,30 @@
-<!--pages/topics/topics.wxml-->
-<text>pages/topics/topics.wxml</text>
-<view bindtap='jump'>点我啊</view>
+<view class="top-bar">
+  <view class="top-bar-item{{tab=='all'?' focus':''}}" id="all" catchtap="onTapTag">全部</view>
+  <view class="top-bar-item{{tab=='good'?' focus':''}}" id="good" catchtap="onTapTag">精华</view>
+  <view class="top-bar-item{{tab=='share'?' focus':''}}" id="share" catchtap="onTapTag">分享</view>
+  <view class="top-bar-item{{tab=='ask'?' focus':''}}" id="ask" catchtap="onTapTag">问答</view>
+  <view class="top-bar-item{{tab=='job'?' focus':''}}" id="job" catchtap="onTapTag">招聘</view>
+</view>
+<loading hidden="{{hidden}}">
+  加载中...
+</loading>
+<scroll-view 
+scroll-with-animation enable-back-to-top
+class="posts-list" style="height:400px" scroll-y bindscrolltolower="lower" lower-threshold="50">
+  <block wx:for="{{articleList}}">
+    <view class="postItem" index="{{index}}" id="{{item.id}}" catchtap='redictDetail'>
+      <view class="author">
+        <image class="author-avatar" src="{{item.author.avatar_url}}"></image>
+        <view class="author-loginname">{{item.author.loginname}}</view>
+        <view class="posts-tag hot" wx:if="{{item.top === true}}">置顶</view>
+        <view class="posts-tag" wx:if="{{item.good === true}}">精华</view>
+        <view class="author-last_reply_at">{{item.last_reply_at}}</view>
+      </view>
+      <view class="post-title">{{item.title}}</view>
+      <view class="post-barinfo">
+        <view class="visis-count">浏览:{{item.visit_count}}</view>
+        <view class="reply-count">回复:{{item.reply_count}}</view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
