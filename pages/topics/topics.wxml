@@ -10,7 +10,7 @@
 </loading>
 <scroll-view 
 scroll-with-animation enable-back-to-top
-class="posts-list" style="height:400px" scroll-y bindscrolltolower="lower" lower-threshold="50">
+class="posts-list" style="height:{{scroll_view_height}}px" scroll-y bindscrolltolower="lower" lower-threshold="50">
   <block wx:for="{{articleList}}">
     <view class="postItem" index="{{index}}" id="{{item.id}}" catchtap='redictDetail'>
       <view class="author">

@@ -12,7 +12,8 @@ Page({
     articleList: {},
     hidden: true,
     tab: "all",
-    page: 1
+    page: 1,
+    scroll_view_height:0
   },
 
   /**
@@ -22,6 +23,12 @@ Page({
     that = this;
     console.log("get topic lists.");
     this.fetchData();
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        that.setData({ scroll_view_height: res.windowHeight-40 });
+      }
+    });
   },
 
   fetchData: function(data){
